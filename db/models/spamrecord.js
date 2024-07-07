@@ -2,7 +2,7 @@
 const { Model } = require("sequelize");
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
-module.exports = sequelize.define(
+const spamRecord = sequelize.define(
   "spamRecord",
   {
     id: {
@@ -13,7 +13,7 @@ module.exports = sequelize.define(
     },
     phoneNumber: {
       allowNull: false,
-      type: DataTypes.BIGINT,
+      type: DataTypes.STRING,
     },
     name: {
       type: DataTypes.STRING,
@@ -43,3 +43,5 @@ module.exports = sequelize.define(
     modelName: "spamRecord",
   }
 );
+
+module.exports = spamRecord;

@@ -4,6 +4,14 @@ const hash = bcrypt.hashSync(password, 10);
 const CONSTANTS = {
   sampleUserData: [
     {
+      id: "a29cf50a-059a-43de-b9d2-2324444e9f46",
+      name: "Jane Doe",
+      email: "janedoe@gmail.com",
+      phoneNumber: "9232456780",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
       id: "f53444f6-804c-4205-8bca-57b643e83269",
       name: "Mills Francis",
       email: "millsfrancis@egypto.com",
@@ -186,11 +194,36 @@ const CONSTANTS = {
   ],
   sampleGlobalStoreData: [
     {
+      id: "50aa2dbc-27da-4f19-a821-5d449696830d",
+      importedByUserId: "f53444f6-804c-4205-8bca-57b643e83269",
+      name: "Mills France",
+      phoneNumber: "9565002775",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: "274141fa-7dd9-4d82-b409-b3f764c9b3b6",
+      importedByUserId: "05709851-7b09-4fa5-b968-5c82528a77fb",
+      name: "Millers Francis",
+      phoneNumber: "9565002775",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
       id: "4847d9ad-ccfc-4fa0-ba57-375312cf5cd6",
       registeredUserId: "f53444f6-804c-4205-8bca-57b643e83269",
       importedByUserId: "f53444f6-804c-4205-8bca-57b643e83269",
       name: "Mills Francis",
       phoneNumber: "9565002775",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: "9ce5e0d4-0f98-4912-8c1c-142b866e4945",
+      registeredUserId: "a29cf50a-059a-43de-b9d2-2324444e9f46",
+      importedByUserId: "05709851-7b09-4fa5-b968-5c82528a77fb",
+      name: "Jane Doe",
+      phoneNumber: "9232456780",
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -209,6 +242,14 @@ const CONSTANTS = {
       importedByUserId: "f047176c-9417-4b12-84f1-10f230dee072",
       name: "Bush Johnson",
       phoneNumber: "9544272480",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      id: "72ac3930-00f5-4dca-92c4-a2a3376d5991",
+      importedByUserId: "be694c66-9035-4edb-8478-a10948dccbd3",
+      name: "Lyons Hardy",
+      phoneNumber: "9005492952",
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -448,7 +489,6 @@ const CONSTANTS = {
     {
       id: "ded20188-b179-4eba-a41f-fd57577bf377",
       importedByUserId: "05709851-7b09-4fa5-b968-5c82528a77fb",
-      name: null,
       phoneNumber: "8756493123",
       createdAt: new Date(),
       updatedAt: new Date(),

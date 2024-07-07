@@ -11,7 +11,7 @@ module.exports = {
       },
       phoneNumber: {
         allowNull: false,
-        type: Sequelize.BIGINT,
+        type: Sequelize.STRING,
       },
       name: {
         type: Sequelize.STRING,

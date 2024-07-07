@@ -2,7 +2,7 @@
 const { Model } = require("sequelize");
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
-module.exports = sequelize.define(
+const globalStore = sequelize.define(
   "globalStore",
   {
     id: {
@@ -13,7 +13,7 @@ module.exports = sequelize.define(
     },
     phoneNumber: {
       allowNull: false,
-      type: DataTypes.BIGINT,
+      type: DataTypes.STRING,
     },
     name: {
       type: DataTypes.STRING,
@@ -44,3 +44,5 @@ module.exports = sequelize.define(
     modelName: "globalStore",
   }
 );
+
+module.exports = globalStore;

@@ -10,7 +10,7 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
       },
       phoneNumber: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.STRING,
       },
       name: {
         type: Sequelize.STRING,
