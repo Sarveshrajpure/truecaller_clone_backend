@@ -8,6 +8,11 @@ module.exports = {
     host: process.env.DB_HOST,
     port: 5432,
     dialect: "postgres",
+    dialectOptions: {
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    },
   },
   test: {
     username: "root",
@@ -23,10 +28,5 @@ module.exports = {
     host: process.env.DB_HOST,
     port: 5432,
     dialect: "postgres",
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorized: true,
-      },
-    },
   },
 };
