@@ -20,6 +20,7 @@ module.exports = sequelize.define(
     },
     registeredUserId: {
       type: DataTypes.UUID,
+      unique: true,
     },
     importedByUserId: {
       allowNull: false,

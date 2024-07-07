@@ -1,7 +1,7 @@
 "use strict";
-const { Model } = require("sequelize");
-const { Sequelize, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
+const bcrypt = require("bcrypt");
 module.exports = sequelize.define(
   "user",
   {
@@ -23,6 +23,10 @@ module.exports = sequelize.define(
     },
     password: {
       type: DataTypes.STRING,
+      set(value) {
+        const hashPassword = bcrypt.hashSync(value, 10);
+        this.setDataValue("password", hashPassword);
+      },
     },
     createdAt: {
       allowNull: false,

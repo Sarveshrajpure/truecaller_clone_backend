@@ -4,7 +4,9 @@ const passwordErrorMsg = `Should contain atleast a capital letter, atleast a sma
 
 const userRegisterSchema = Joi.object({
   name: Joi.string().min(3).max(300).required("Name required!"),
-  email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }),
+  email: Joi.string()
+    .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
+    .allow(""),
   password: Joi.string()
     .regex(passwordRegex)
     .message(`Invalid password, please ensure :- ${passwordErrorMsg}`)
@@ -21,4 +23,21 @@ const userRegisterSchema = Joi.object({
     .required(),
 });
 
-module.exports = { userRegisterSchema };
+const userLoginSchema = Joi.object({
+  phoneNumber: Joi.string()
+    .min(10)
+    .max(15)
+    .regex(/^[0-9]*$/)
+    .messages({
+      "string.min": "Phone number must be minimum 10 digits",
+      "string.max": "Phone number must be maximum 15 digits",
+      "string.pattern.base": `Phone number must have 10 digits.`,
+    })
+    .required(),
+  password: Joi.string()
+    .regex(passwordRegex)
+    .message(`Invalid password, please ensure :- ${passwordErrorMsg}`)
+    .required(),
+});
+
+module.exports = { userRegisterSchema, userLoginSchema };

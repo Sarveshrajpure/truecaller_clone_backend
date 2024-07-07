@@ -17,6 +17,7 @@ module.exports = {
       },
       registeredUserId: {
         type: Sequelize.UUID,
+        unique: true,
       },
       importedByUserId: {
         type: Sequelize.UUID,

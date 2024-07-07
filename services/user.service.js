@@ -8,7 +8,6 @@ const checkUserExists = async (phoneNumber, email) => {
       where: { phoneNumber: phoneNumber },
       attributes: ["id", "phoneNumber"],
     });
-    console.log(checkUser);
 
     if (checkUser) {
       throw new ApiError(httpStatus.BAD_REQUEST, "Phone number already exists!");
@@ -18,4 +17,19 @@ const checkUserExists = async (phoneNumber, email) => {
   }
 };
 
-module.exports = { checkUserExists };
+const findUserByPhoneNumber = async (phoneNumber) => {
+  try {
+    let fetchedUser = await user.findOne({ where: { phoneNumber } });
+    if (fetchedUser !== null) {
+      return fetchedUser.toJSON();
+    } else {
+      return false;
+    }
+  } catch (err) {
+    throw err;
+  }
+};
+
+
+
+module.exports = { checkUserExists, findUserByPhoneNumber };
