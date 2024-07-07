@@ -1,7 +1,8 @@
 const express = require("express");
 const routes = require("./routes/index");
-const sequelize  = require("./config/database");
+const sequelize = require("./config/database");
 const { convertToApiError, handleError } = require("./middlewares/errorHandlingMiddleware");
+const httpStatus = require("http-status");
 const app = express();
 
 app.use(express.json());
@@ -12,6 +13,10 @@ console.log(port);
 
 // api route
 app.use("/api", routes);
+
+app.get("/", (req, res) => {
+  res.status(httpStatus.OK).send({ message: "Welcome!" });
+});
 
 //API ERROR HANDLING
 app.use(convertToApiError);
